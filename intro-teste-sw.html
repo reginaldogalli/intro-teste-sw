@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+	<div>
+		<div>
+			<span>Conceitos Preliminares</span>
+			<details>
+				<summary>Padronização da terminologia: Engano x Defeito x Erro x Falha</summary>
+				Engano  introduz =>  Defeito  produz =>  Erro  propaga =>  Falha
+				<ul>
+					<li>Considere o comando (z = y + x) substituído por engano pelo comando (z = y - x).</li>
+					<li>Se o defeito introduzido for ativado com (x = 0):
+						<ul>
+							<li>Nenhum valor incorreto para a variável z é produzido.</li>
+							<li>O defeito é ativado mas não produz um erro e, consequentemente, não ocorre uma falha.</li>
+						</ul>
+					</li>
+					<li>Para qualquer outro valor de x (x != 0):
+						<ul>
+							<li>A ativação do defeito produz um erro na variável z.</li>
+							<li>Tal erro, se propaga até a saída, caracteriza uma falha.</li>
+						</ul>
+					</li>
+				</ul>
+				A ISO/IEC/IEEE 24765:2010(E) diferencia os seguintes termos:
+				<ol>
+					<li>Engano (Mistake) - ação humana que produz um resultado incorreto.</li>
+					<li>Defeito (Fault) - um passo, processo, ou definição de dados incorreta em um produto de software.</li>
+					<li>Erro (Error) - diferença entre o valor computado, observado ou medido e o valor teoricamente correto de acordo com a especificação.</li>
+					<li>Falha (Failure) - inabilidade do sistema ou componente de realizar a função requerida, considerando as questões de desempenho exigidas.</li>
+				</ol>
+			</details>
+		</div>
+		<div>
+			<details>
+				<summary>Etapas da atividade de teste</summary>
+				<ul>
+					<li>Planejamento:
+						<ul>
+							<li>Recursos humanos, tecnológicos, estratégias de teste e critérios.</li>
+							<li>Saída: Plano de teste
+								<ul>
+									<li>Planejamento para execução do teste; funcionalidades a serem testadas; tarefas de teste; riscos associados, cronograma, requisitos do ambiente, etc.</li>
+								</ul>
+							</li>
+							<li>Dica de busca: modelo de plano de teste, template de plano de teste, testing plan model, testing plan template, etc.</li>
+						</ul>
+					</li>
+					<li>Projeto de casos de teste:
+						<ul>
+							<li>São elaborados os casos de teste com os quais o programa deve ser testado.</li>
+							<li>Saída:
+								<ul>
+									<li>Especificação de Projeto de Caso de Teste (refina o planejamento).</li>
+									<li>Especificação de caso de teste (dados de entrada, resultados esperados, ações para execução do teste).</li>
+									<li>Especificação de procedimento de teste (passos para executar o conjunto de casos de teste).</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>Execução:
+						<ul>
+							<li>O programa é executado com os casos de teste elaborados.</li>
+							<li>Saída:
+								<ul>
+									<li>Diário de teste (detalhes cronológicos de execução dos testes).</li>
+									<li>Relatório de incidente de teste (qualquer evento ocorrido na execução e que precise ser analisado depois).</li>
+									<li>Relatório de encaminhamento de item de teste.</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>Análise dos resultados
+						<ul>
+							<li>Avalia-se o comportamento do programa testado, considerando os casos de teste.</li>
+							<li>Saída:
+								<ul>
+									<li>Relatório de resumo de teste</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</details>
+		</div>
+	</div>
+</body>
+</html>
