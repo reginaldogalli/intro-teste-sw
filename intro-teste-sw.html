@@ -29,10 +29,10 @@
 				</ul>
 				A ISO/IEC/IEEE 24765:2010(E) diferencia os seguintes termos:
 				<ol>
-					<li>Engano (Mistake) - ação humana que produz um resultado incorreto.</li>
-					<li>Defeito (Fault) - um passo, processo, ou definição de dados incorreta em um produto de software.</li>
-					<li>Erro (Error) - diferença entre o valor computado, observado ou medido e o valor teoricamente correto de acordo com a especificação.</li>
-					<li>Falha (Failure) - inabilidade do sistema ou componente de realizar a função requerida, considerando as questões de desempenho exigidas.</li>
+					<li><strong>Engano (Mistake)</strong> - ação humana que produz um resultado incorreto.</li>
+					<li><strong>Defeito (Fault)</strong> - um passo, processo, ou definição de dados incorreta em um produto de software.</li>
+					<li><strong>Erro (Error)</strong> - diferença entre o valor computado, observado ou medido e o valor teoricamente correto de acordo com a especificação.</li>
+					<li><strong>Falha (Failure)</strong> - inabilidade do sistema ou componente de realizar a função requerida, considerando as questões de desempenho exigidas.</li>
 				</ol>
 			</details>
 		</div>
@@ -40,7 +40,7 @@
 			<details>
 				<summary>Etapas da atividade de teste</summary>
 				<ul>
-					<li>Planejamento:
+					<li><strong>Planejamento:</strong>
 						<ul>
 							<li>Recursos humanos, tecnológicos, estratégias de teste e critérios.</li>
 							<li>Saída: Plano de teste
@@ -51,7 +51,7 @@
 							<li>Dica de busca: modelo de plano de teste, template de plano de teste, testing plan model, testing plan template, etc.</li>
 						</ul>
 					</li>
-					<li>Projeto de casos de teste:
+					<li><strong>Projeto de casos de teste:</strong>
 						<ul>
 							<li>São elaborados os casos de teste com os quais o programa deve ser testado.</li>
 							<li>Saída:
@@ -63,7 +63,7 @@
 							</li>
 						</ul>
 					</li>
-					<li>Execução:
+					<li><strong>Execução:</strong>
 						<ul>
 							<li>O programa é executado com os casos de teste elaborados.</li>
 							<li>Saída:
@@ -75,7 +75,7 @@
 							</li>
 						</ul>
 					</li>
-					<li>Análise dos resultados
+					<li><strong>Análise dos resultados:</strong>
 						<ul>
 							<li>Avalia-se o comportamento do programa testado, considerando os casos de teste.</li>
 							<li>Saída:
@@ -86,6 +86,47 @@
 						</ul>
 					</li>
 				</ul>
+			</details>
+		</div>
+		<div>
+			<details>
+				<summary>As fases da atividade de teste</summary>
+				<table>
+					<thead>
+						<tr>
+							<th>Fase</th>
+							<th>Foco</th>
+							<th>Erros que podem ser relatados</th>
+							<th>Observação</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Teste de <strong>Unidade</strong></td>
+							<td><strong>Menores unidades</strong> de um software (funções, procedimentos, métodos, classes).</td>
+							<td>Erros simples de programação, estruturas de dados incorretas, algoritmos mal interpretados ou incorretos.</td>
+							<td>Pode ser feito durante a implementação e pelo próprio desenvolvedor</td>
+						</tr>
+						<tr>
+							<td>Teste de <strong>Integração</strong></td>
+							<td>Construção <strong>da estrutura</strong> do software</td>
+							<td>interfaces entre as unidades</td>
+							<td>Feito após testar as unidades.<br>Executado pela equipe de desenvolvimento, que conhece a estrutura interna do software.</td>
+						</tr>
+						<tr>
+							<td>Teste de <strong>Sistema</strong></td>
+							<td>O <strong>sistema.</strong></td>
+							<td>Erros de funções e características de desempenho que não estejam de acordo com a especificação.</td>
+							<td>Feito após o sistema estar completo.<br>Pode ser feito por uma equipe independente.<br>Pode-se considerar requisitos funcionais e não funcionais (segurança, performance, etc).</td>
+						</tr>
+						<tr>
+							<td>Teste de <strong>Regressão</strong></td>
+							<td>Garantir que os requisitos testados anteriormente continuam válidos <strong>após modificações</strong> no software.</td>
+							<td>Erros referente às funções que foram atualizadas</td>
+							<td>Este teste é feito após as manutenções do sofwtare.</td>
+						</tr>
+					</tbody>
+				</table>
 			</details>
 		</div>
 	</div>
