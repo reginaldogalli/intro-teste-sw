@@ -130,5 +130,169 @@
 			</details>
 		</div>
 	</div>
+	<div>
+		<details>
+			<summary>Técnicas de teste</summary>
+			<strong>Cenário típico da atividade de teste</strong>
+			<ul>
+				<li><strong>Domínio de entrada</strong> de um programa <strong>P</strong>: conjunto de todos os valores que podem ser usados para executar P;</li>
+				<li><strong>Dado de teste: </strong> elemento do domínio de entrada P;</li>
+				<li><strong>Caso de teste: </strong> Dado de teste + Resultado esperado => Saída obtida = Saída esperada?</li>
+			</ul>
+			<strong>Subdomínios</strong>
+			Testar um programa com todos os elementos possíveis pode ser infactível ar grandes ou infinitos domínios de entrada. Neste caso podemos selecionar subdomínios, garantindo a alta probabilidade em revelar defeitos no software, caso existam.
+			<br> Para identificar os subdomínios são definidas "regras", chamadas <strong>técnicas</strong> e seus critérios, para identificar quando dados de teste devem estar no mesmo subdomínio ou em subdomínios diferentes.
+			<table>
+				<thead>
+					<tr>
+						<th>Técnicas</th>
+						<th>Tipos de informação utilizado para derivar as requisições de teste</th>
+						<th>Passos principais</th>
+						<th>Exemplos de critérios</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Teste <strong>Funcional</strong></td>
+						<td><strong>Especificação</strong> do software</td>
+						<td>a) Identificar as funções que o software deve realizar.<br>
+						b) Criar casos de teste capazes de verificar se tais funções estão sendo executadas corretamente.</td>
+						<td>
+							<ul>
+								<li>Particionamento em Classes de Equivalência</li>
+								<li>Análise do valor limite</li>
+								<li>Combinatorial</li>
+								<li>Grafo de causa-efeito</li>
+								<li>Error-guessing</li>
+								<li>Teste funcional sistemático</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td>Teste <strong>Estrutural</strong></td>
+						<td>Conhecimento da estrutura interna do programa <strong>(implementação, código fonte)</strong></td>
+						<td>A maioria dos critérios desta técnica utiliza uma representação de programa conhecida como grafo de programa.</td>
+						<td>
+							<ul>
+								<li>Critérios baseados em complexidade (McCabe)</li>
+								<li>Critérios baseados em fluxo de controle (todos-nós, todos-arcos, todos-caminhos)</li>
+								<li>Critérios baseados em fluxo de dados (Rapps & Wayuker; Potenciais usos)</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td>Técnica baseada em <strong>defeitos</strong></td>
+						<td><strong>Defeitos típicos </strong>do processo de implementação de software</td>
+						<td>Criar implementações alternativas e forçar o testador a projetar casos de teste que revelem os defeitos neles introduzidos.</td>
+						<td>
+							<ul>
+								<li><strong>Teste de Mutação</strong>
+									<ul>
+										<li>Análise de Mutantes</li>
+										<li>Mutação de interface</li>
+									</ul>
+								</li>
+							</ul>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<br><ul>
+				<li>Funcional: todas as fases de teste (unidade, integração sistema).</li>
+				<li>Estrutural: fases de teste de unidade e teste de integração.</li>
+				<li>Mutaação: fases de teste de unidade de teste de integração.</li>
+			</ul>
+		</details>
+	</div>
+	<span>Teste Funcional</span>
+	<div>
+		<details>
+			<summary>Particionamento em Classes de Equivalência</summary>
+			<strong>Diretrizes para definir as classes</strong>
+			<ul>
+				<li>Se a condição de entrada especifica um intervalo, então defini-se uma classe válida e duas inválidas.</li>
+				<li>Se a condição de entrada especifica uma quantidade, então defini-se uma classe válida e duas inválidas.</li>
+				<li>Se a condição especifica conjuntos determinados de valores, defini-se uma classe válida para cada conjunto e uma classe inválida com outro valor qualquer.</li>
+				<li>Se a condição de entrada é específica ("deve ser assim"), então defini-se uma classe válida e uma inválida.</li>
+			</ul>
+			<strong>Exemplo:</strong> Um programa deve determinar se um identificador é válido ou não. UM identificador válido deve começar com uma letra e conter apenas letras ou dígitos. Além disso, deve ter no mínimo um caractere e no máximo seis caracteres de comprimento".
+			<br><strong>Passo 1: Identificar as classes de equivalência</strong>
+			<table>
+				<thead>
+					<tr>
+						<th>Variáveis de entrada</th>
+						<th>Classes de equivalência válidas</th>
+						<th>Classes de equivalência inválidas</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Comprimento (t)</td>
+						<td>1 <= t <= 6 <strong>(1)</strong></td>
+						<td>t < 1 <strong>(2)</strong> e t > 6 <strong>(3)</strong></td>
+					</tr>
+					<tr>
+						<td>Iniciar com uma letra (l)</td>
+						<td>Sim, inicia com letra <strong>(4)</strong></td>
+						<td>Não inicia com letra <strong>(5)</strong></td>
+					</tr>
+					<tr>
+						<td>Contém letras ou dígitos (c)</td>
+						<td>sim, só contém letras ou dígitos<strong>(6)</strong></td>
+						<td>Contém caracteres diferentes de letras e dígitos<strong>(7)</strong></td>
+					</tr>
+				</tbody>
+			</table>
+			<strong>Passo 2: Definição do conjunto de casos de teste:</strong><br>
+			T<sub>0</sub> = {(a5, Válido),<sub>(1), (4), (6)</sub> ("", Inválido),<sub>(2)</sub> (665432197, Inválido), <sub>(3), (5)</sub> (B*ss1, Inválido <sub>(7)</sub>)}
+		</details>
+	</div>
+	<div>
+		<details>
+			<summary>Análise do valor limite</summary>
+			Explora valores nos limites das classes de equivalência (sobre ou imediatamente antes ou depois dos limitadores das classes).<br>
+			<strong>Recomendações gerais para a aplicação do critério análise do valor limite</strong>
+			<table>
+				<thead>
+					<tr>
+						<th>Se a condição de entrada...</th>
+						<th>Exemplo</th>
+						<th>...devem ser definidos dados de teste</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>(1)Especifica um intervalo de valores</td>
+						<td>Um valor no intervalo entre -1 e 1.</td>
+						<td>Para os limites desse intervalo e dados de teste imediatamente subsequentes, que explorem classes inválidas vizinhas:
+							<ul>
+								<li>-1</li>
+								<li>+1</li>
+								<li>-1,001</li>
+								<li>+1,001</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td>(2)Especifica uma quantidade de valores</td>
+						<td>Um valor no tamanho de 1 até 255 caracteres</td>
+						<td>
+							<ul>
+								<li>Com nenhum valor de entrada;</li>
+								<li>Com somente 1 valor;</li>
+								<li>Com 255 valores;</li>
+								<li>e com 256 valores de entrada;</li>
+							</ul>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<ul>
+				<li>Usar a recomendação (1) para as condições de saída.</li>
+				<li>Usar a recomendação (2) para as condições de saída.</li>
+				<li>Se a entrada ou saída for um conjunto ordenado, preocupe-se com o primeiro e o último elemento.</li>
+			</ul>
+		</details>
+	</div>
 </body>
 </html>
